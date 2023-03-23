@@ -1,0 +1,68 @@
+.main {
+    
+    display: grid;
+}
+
+.main h1 {
+    margin: auto;
+    margin-top: 15px;
+    display: flex;
+    justify-self: center;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 50px 50px;
+    justify-content: center;
+    margin-top: 80px;
+    column-gap: 3px;
+    background-image: url("./images/plane.png");
+    background-size: contain ;
+    background-repeat: no-repeat;
+    background-position: center top;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    
+}
+
+.seats {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.seats--img{
+    width: 50%;
+
+    
+    
+}
+
+.main button {
+    width: 100px;
+    height: 30px;
+    margin: auto;
+    margin-top: 70px;
+}
+
+.seats--price {
+    background-color: pink;
+    color: white;
+    display: flex;
+    justify-content: center;
+    border-radius: 3px;
+    position: absolute;
+    margin: 0;
+    top: 0;
+}
+
+.seats--number {
+    display: flex;
+    justify-content: center;
+    margin: 2px;
+}
+
+
