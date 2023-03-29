@@ -63,7 +63,7 @@ export default [
         id: 11,
         img: "./images/seatyc.png",
         seatNumber: "6A",
-        price: 300,
+        price: 200,
     },
     {
         id: 12,
