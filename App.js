@@ -1,25 +1,23 @@
 import React from "react";
-import Seats from "./components/Seats";
+import Seat from "./components/Seat";
 import data from "./data";
 
 export default function App() {
   const [seatId, setSeatId] = React.useState(null);
-  const [seatPrice, setSeatPrice] = React.useState(null)
+  const [premiumFilter, setPremiumFilter] = React.useState(false)
 
   const seats = data.map((item) => {
+    console.log(premiumFilter, item.price)
     return (
-      <Seats
+      <Seat
         key={item.id}
         selected={seatId === item.id}
-        premium={seatPrice === item.price}
+        premium={premiumFilter ? item.price > 200 : false}
         onSelect={() => {
           // if (confirmedSeat !== null) {
           //   return;
           // }
           setSeatId(item.id);
-        }}
-        onPremium={() => {
-          setSeatPrice(item.price)
         }}
         {...item}
       />
@@ -37,28 +35,33 @@ export default function App() {
   const [shouldBeOpen, setShouldBeOpen] = React.useState(false)
   
   function closeDialog(){
-    setShouldBeOpen(prevState => !prevState)
+    setShouldBeOpen(false)
+    setSeatId(null)
   }
 
-  const [showPremiumSeats, setShowPremiumSeats] = React.useState(false)
-
   function premium(){
-    // ??????????
-    onPremium();
-    const premiumSeat = data.find((item) => item.price === seatPrice)
-    const premiumSeats = premiumSeat.filter((item) => {
-      return item.price > 200
-    })
-    setShowPremiumSeats(premiumSeats)
+    setPremiumFilter(prevState => !prevState)
+  }
+
+  const[name, setName] = React.useState(null)
+
+  function confirmName(){
+    setName("Iza")
   }
  
   return (
     <div className="main">
       <h1>Choose your seat</h1>
       <button className="premium--btn" onClick={premium}>Show premium seats</button>
-      {confirmedSeat && (
+      {confirmedSeat && !name && (
         <dialog open={shouldBeOpen} className="dialog">
-          <p>Your seat: {confirmedSeat.seatNumber} <br></br> Cost: ${confirmedSeat.price}</p>
+          <input />
+          <button className="close--btn" onClick={confirmName}>OK</button>
+        </dialog>
+      )}
+      {confirmedSeat && name && (
+        <dialog open={shouldBeOpen} className="dialog">
+          <p>Your seat: {name} {confirmedSeat.seatNumber} <br></br> Cost: ${confirmedSeat.price}</p>
           <button className="close--btn" onClick={closeDialog}>Go back</button>
         </dialog>
       )}
