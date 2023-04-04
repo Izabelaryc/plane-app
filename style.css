@@ -136,3 +136,41 @@ body {
     font-size: 1.2rem;
 }
 
+.dialog input {
+    display: flex; 
+    justify-content: center;
+    font-size: 1em;
+    margin-left: 15px;
+    /* width: 100px; */
+}
+
+.dialog label {
+    display: flex;
+    justify-content: center;
+    font-size: 0.6em ;
+    margin-top: 100px;
+    margin-left: 10px;
+}
+
+
+
+.confirm--btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Inter, sans-serif;
+    background-color: #9b4b73;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    width: 150px;
+    height: 40px;
+    margin: auto;
+    margin-top: 60px;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+
+
