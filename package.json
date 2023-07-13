@@ -1,10 +1,19 @@
 {
+  "scripts": {
+    "start": "parcel ./index.html",
+    "prebuild-dev": "shx rm -rf dist/*",
+    "build-dev": "parcel build ./index.html --no-optimize --public-url ./",
+    "prebuild": "shx rm -rf dist/*",
+    "build": "parcel build ./index.html --public-url ./",
+    "push-gh-pages": "push-dir --dir=dist --branch=gh-pages --cleanup --verbose"
+  },
   "dependencies": {
     "parcel": "^2.8.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "process": "^0.11.10"
+    "process": "^0.11.10",
+    "shx": "^0.3.2"
   }
 }
