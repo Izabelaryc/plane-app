@@ -24,7 +24,7 @@ body {
     justify-content: center;
     margin-top: 30px;
     column-gap: 3px;
-    background-image: url("./images/plane.png");
+    background-image: url("./src/images/plane.png");
     background-size: contain ;
     background-repeat: no-repeat;
     background-position: center top;
@@ -102,7 +102,7 @@ body {
     width: 40vw;
     z-index: 1000;
     border: none;
-    background-image: url("./images/sky.png");
+    background-image: url("./src/images/sky.png");
     color: white;
     border-radius: 30px;
     /* display: flex; */
