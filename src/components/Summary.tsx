@@ -1,6 +1,17 @@
-import React from "react";
+type Props = {
+  confirmedSeat?: {
+    seatNumber: string;
+    price: number;
+  };
+  user: User | null;
+  closeDialog: ()=> void;
+}
+export type User = {
+    firstName: string;
+    lastName: string;
+  }
 
-export default function Summary(props) {
+export default function Summary(props: Props) {
   return (
     <div>
       <p>

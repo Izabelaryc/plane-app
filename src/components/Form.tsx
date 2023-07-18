@@ -1,14 +1,20 @@
-import React from "react";
+import React, { ChangeEventHandler, FormEventHandler } from "react";
 const initialFormData = {
     firstName: "",
     lastName: "",
   }
+type FormData = {
+  firstName: string;
+  lastName: string;
+}
+type Props = {
+  onDataReady: (formData: FormData)=> void;
+}
 
-
-export default function Form(props) {
+export default function Form(props: Props) {
     const [formData, setFormData] = React.useState(initialFormData);
 
-    function confirmName(event) {
+    const confirmName: ChangeEventHandler<HTMLInputElement> = (event) => {
         setFormData((prevFormData) => {
           return {
             ...prevFormData,
@@ -17,7 +23,7 @@ export default function Form(props) {
         });
       }
 
-      function handleSubmit(event) {
+      const handleSubmit: FormEventHandler = (event) => {
         event.preventDefault();
         console.log(formData);
         if (formData.firstName !== "" && formData.lastName !== "") {

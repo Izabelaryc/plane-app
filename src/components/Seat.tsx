@@ -2,7 +2,17 @@ import React from "react";
 import seatbc from "../images/seatbc.png";
 import seatyc from "../images/seatyc.png";
 
-export default function Seat(props) {
+type Props ={
+  onSelect: ()=> void;
+  selected: boolean;
+  premium: boolean;
+  seatNumber: string;
+  id: number;
+  price: number;
+
+}
+
+export default function Seat(props: Props) {
   const [showPrice, setShowPrice] = React.useState(false);
 
   function addBorder() {

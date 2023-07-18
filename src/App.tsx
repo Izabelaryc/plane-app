@@ -2,18 +2,18 @@ import React from "react";
 import Seat from "./components/Seat";
 import data from "./data";
 import Form from "./components/Form";
-import Summary from "./components/Summary";
+import Summary, { User } from "./components/Summary";
 
-export const steps = {
+const steps = {
   plane: "plane",
   userData: "userData",
   summary: "summary",
 };
 
 export default function App() {
-  const [seatId, setSeatId] = React.useState(null);
+  const [seatId, setSeatId] = React.useState<null | number>(null);
   const [premiumFilter, setPremiumFilter] = React.useState(false);
-  const [user, setUser] = React.useState(null);
+  const [user, setUser] = React.useState<null | User>(null);
   const [currentStep, setCurrentStep] = React.useState(steps.plane);
 
   React.useEffect(() => {
@@ -51,7 +51,7 @@ export default function App() {
     );
   });
 
-  function saveUser(user) {
+  function saveUser(user: User) {
     setUser(user);
     setCurrentStep(steps.summary);
   }
